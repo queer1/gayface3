@@ -1,0 +1,85 @@
+ <% @gayface_users.each do |gayface_user| %>
+          
+      <div class="carousel-image">
+        <%= link_to (image_fu gayface_user.gayface_photo, '1562x1037', :style => "visibility: hidden", :style => "display: inline"), refinery.gayface_users_gayface_user_path(gayface_user) %> 
+        <div class="carousel-label">
+        <%=gayface_user.first_name %> <%=gayface_user.last_name.chars.first %>
+        <br>
+        <br>
+        <%=gayface_user.city %>, <%=gayface_user.state %>
+        </div>
+      </div>
+      
+
+      <!--     <img src="" alt class="ib-preview-img" style="display: block; width: 1562px; height: 1037px; left: 0px; top: -381px;">
+     -->
+          <!-- <a href=" --><%#= refinery.gayface_users_gayface_user_path(gayface_user) %><!-- " class="ib-image"> <%= image_fu (gayface_user.gayface_photo)%>  -->
+      <!--     <span class="ib-preview-descr" style> --><%#=gayface_user.first_name %> <!-- </span> -->
+      <!--     </a>  -->
+           
+
+        <% end %>
+        <% end %>
+
+SHOW PAGE
+
+<%# content_for :body_content_title do %>
+  <%#= @gayface_user.first_name %>
+  <%#= @gayface_user.last_name.chars.first %>
+<%# end %>
+
+
+<!-- BODY CONTENT -->
+<% content_for :body do %>
+
+<!-- GAYFACE PHOTO   -->
+  <section>
+    <p>
+      <%= image_fu @gayface_user.gayface_photo, nil %>
+    </p>
+  </section>
+
+<!-- FIRST NAME WITH INITIAL OF LAST NAME -->
+  <section>
+    <h1> <%=raw @gayface_user.first_name %> <%=raw @gayface_user.last_name.chars.first %> <h1>
+  </section>  
+
+<!-- LOCATION -->
+  <section>
+    <h1> <%=raw @gayface_user.city %>, <%=raw @gayface_user.state %> </h1>
+  </section>
+
+<!-- SEXUAL IDENTIFICATION -->
+  <section>
+    <h1>Identifies As: <%=raw @gayface_user.sexual_id %> </h1>
+  </section>
+
+<!-- OCCUPATION   -->
+  <section>
+    <h1>Occupation: <%=raw @gayface_user.occupation %></h1>
+  </section>
+
+<!-- BLURB   -->
+  <section>
+    <h1>Blurb</h1>
+    <p>
+      <%=raw @gayface_user.blurb %>
+    </p>
+  </section>
+<% end %>
+
+<% content_for :side_body do %>
+  <aside>
+    <h2><%= t('.other') %></h2>
+    <ul id="gayface_users">
+      <% @gayface_users.each do |gayface_user| %>
+        <li>
+          <%= link_to gayface_user.first_name, refinery.gayface_users_gayface_user_path(gayface_user) %>
+        </li>
+      <% end %>
+    </ul>
+  </aside>
+<% end %>
+
+<%= render '/refinery/content_page', :hide_sections => :body_content_title %>
+

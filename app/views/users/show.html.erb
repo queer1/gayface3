@@ -1,0 +1,63 @@
+ <div class="main_wrapper">
+        <!-- C O N T E N T -->
+        <div class="content_wrapper">
+              <div class="container">
+
+
+<p id="notice"><%= notice %></p>
+
+<!-- GAYFACE PHOTO -->
+<%= image_tag(@user.image_url, :width => "100%", :height => "auto") %>
+
+<!-- USER'S FIRST NAME -->
+<%#= @user.first_name %>
+
+<!-- USER'S LAST NAME -->
+<%#= @user.last_name %>
+
+<!-- USER'S FULL NAME (First and Last Initial) -->
+<h1>
+  <%= @user.first_name %> <%= @user.last_name.chars.first %>
+</h1>
+
+<!-- SEXUAL IDENTIFICATION (How they Identify) -->
+<p>
+  <b>Identifies As:</b>
+  <%= @user.sexuality %>
+</p>
+
+<!-- CITY -->
+<%#= @user.city %>
+
+<!-- STATE -->
+<%#= @user.state %>
+
+<!-- CITY, STATE  -->
+<p>
+  <b> Location: </b>
+<%= @user.city %>, <%= @user.state.upcase %>
+</p>
+
+<!-- OCCUPATION -->
+<p>
+  <b>Occupation:</b>
+  <%= @user.occupation %>
+</p>
+
+<!-- BLURB -->
+<p>
+  <b>Blurb</b>
+  <br>
+  <%= truncate(strip_tags(@user.blurb), length: 250) %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %> |
+
+
+
+</div>
+</div>
+</div>
+

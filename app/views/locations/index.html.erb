@@ -1,0 +1,46 @@
+<!-- #################################################################
+<title>JQVMap - World Map</title> -->
+<%= stylesheet_link_tag "jqvmap" %>
+<%= javascript_include_tag "jquery.vmap.js" %>  
+<%= javascript_include_tag "jquery.vmap.usa.js" %>  
+
+    <script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#vmap').vectorMap(
+        { 
+            map: 'usa_en',
+            backgroundColor: '#ffffff', 
+            enableZoom: true, 
+            hoverColor: '#000000',
+            hoverOpacity: null,
+            selectedColor: '#545454',
+            selectedRegion: null,
+
+            onRegionClick: function(element, code, region)
+    {
+        var message = 'You clicked "'
+            + region 
+            + '" which has the code: '
+            + code.toUpperCase();
+             
+        alert(message);
+    }
+        });
+
+// SETS COLORS OF STATES TO DIFFERENT COLORS BASED ON WHETHER THE 
+// STATE HAS GAYFACE USERS OR NOT
+
+// need to add if-else statement that sets colors 
+        jQuery('#vmap').vectorMap('set', 'colors', {al: 'red'});
+        jQuery('#vmap').vectorMap('set', 'colors', {ak: 'red'});
+        jQuery('#vmap').vectorMap('set', 'colors', {az: 'red'});
+        jQuery('#vmap').vectorMap('set', 'colors', {ar: 'red'});
+
+    });
+    </script>
+  
+
+
+
+    <div id="vmap" style="width: 600px; height: 400px;"></div>
+

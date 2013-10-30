@@ -1,0 +1,46 @@
+<%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.min.js" %>
+<%= javascript_include_tag "fs_gallery.js" %>  
+
+
+<body class="fullscreen_layout">
+  <div class="fullscreen_block"></div>    
+    <script>
+    gallery_set = [ //Gallery Data
+
+      // THIS IS AN EXAMPLE IN CASE I WANT TO BRING BACK THE NAME/TAGLINE HOVER
+
+      // {image : "<%= asset_path('test1.jpg') %>", alt : 'Ahi', fit : 'cover', title : "find a way to put username in here", description: "right here we've got something you gonna love..."},
+
+      {image : "<%= asset_path('test1.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test2.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test3.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test4.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test5.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test6.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test7.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test8.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test9.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test10.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test11.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test12.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test13.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test14.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test15.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test16.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test17.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test18.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test19.jpg') %>", fit : 'cover'},
+      {image : "<%= asset_path('test20.jpg') %>", fit : 'cover'}    
+    ];
+    $('body').fs_gallery({
+      fx : 'fade', /*fade, zoom, slide_left, slide_right, slide_top, slide_bottom*/
+      slide_time : 3300, /*This time must be < then time in css*/
+      slides : gallery_set
+    });
+  </script>
+
+  <%= javascript_include_tag "http://code.jquery.com/ui/1.10.2/jquery-ui.min.js" %>
+  <%= javascript_include_tag "theme.js" %>  
+ 
+  <div class="header2top"></div>
+</div>

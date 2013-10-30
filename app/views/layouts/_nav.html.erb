@@ -1,0 +1,21 @@
+<header class="">
+  <div class="header_wrapper container">
+
+    <%= link_to(image_tag('logo.png', :class => "logo", :width => "200", :height => "60"), static_pages_home_path) %>
+  
+      <nav>
+          <ul class="menu">
+              <li> <%= link_to "HOME", static_pages_home_path %> </li>
+              <li> <%= link_to "GALLERY", gallery_index_path %> </li>
+              <li> <%= link_to "MAP", locations_path %> </li>
+              <li> <%= link_to "EVENTS", static_pages_events_path %> </li>
+              <li> <%#= link_to "FORUM", static_pages_home_path %> </li>
+              <li> <%#= link_to "SHOP", static_pages_home_path %> </li>
+               <li> <%= link_to "ABOUT", static_pages_about_path %> </li>
+              <li> <%= link_to "CONTACT", static_pages_contact_path %> </li>
+          </ul>
+              
+          <div class="clear"></div>
+      </nav>
+  </div>
+</header>

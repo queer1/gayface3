@@ -1,0 +1,80 @@
+<%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.min.js" %>
+<%= javascript_include_tag "masonry.pkgd.min.js" %>  
+
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<div class="fullscreen_block" style="padding-top: 69px; min-height: 840px;">
+
+<!-- FILTER NAV -->
+  <div class="filter_block">
+      <div class="filter_navigation">
+          <ul id="options" class="splitter">
+              <li>
+                  <ul data-option-key="filter" class="optionset">
+                      <li class="selected"><a data-option-value="*" href="#filter">All Locations</a></li>
+                      <li><a title="View all the Gay Faces from NYC" data-option-value=".portraits" href="#filter">New York</a></li>
+                      <li><a title="VView all the Gay Faces from LA" data-option-value=".fashion" href="#filter">Los Angeles</a></li>
+                      <li><a title="View all the Gay Faces from New Jerset" data-option-value=".stories" href="#filter">NJ</a></li>
+                      <li><a title="View all the Gay Faces from San Francisco" data-option-value=".fashion" href="#filter">San Fran</a></li>
+                  </ul>
+              </li>
+          </ul>
+      </div><!-- .filter_navigation -->
+  </div><!-- .filter_block -->
+<!-- END FILTER NAV -->
+
+  <div class="fs_grid_module" style="min-height: 582px; position: relative; height: 1760px;">
+      
+<!-- USER/IMAGE BLOCK. ITERATE OVER USERS TO GET ALL USERS'S PHOTOS AND PLOP THEM IN THE DESIGN LAYOUT -->
+<!-- WILL NEED FILTERING/PAGINATION -->
+  <% @users.each do |user| %>
+
+    <div class="grid_gallery-item" data-top="-80px" style="opacity: 1; position: absolute; left: 0px; top: 0px;">
+      <div class="item_hover" style="top: 0px;">
+        <div class="item_hover-img">
+          <%#= image_tag user.image_url %>
+          <%= link_to image_tag(user.image_url, :class => "prettyPhoto", :rel => "prettyPhoto[gallery1]"), user %>
+            <div class="item_hover-fadder"></div>
+              <!-- <a href="img/gallery/gallery_grid1-1.jpg" rel="prettyPhoto[gallery1]" class="prettyPhoto"></a> --><!-- <a href="portfolio_post.html" class="post_link"></a> -->
+        </div>
+        <div class="item_hover-body">
+            <div class="item_hover-descr">
+                <h5><%= link_to user.full_name, user %></h5>
+                <p><%= user.location %></p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+<!-- END USER IMAGE BLOCK -->
+
+  <div class="clear"></div>
+  </div><!-- .fs_grid_module -->
+</div> <!-- .fullscreen_block -->   
+<!-- END TOP  -->
+
+<div class="header2top"></div>
+    <!--<div class="header2top"></div>-->
+
+
+<script>
+  $(document).ready(function(){
+  });
+  $(window).load(function(){
+    //$('.fs_grid_module').masonry();
+    $('.fs_grid_module').masonry({
+      itemSelector: '.grid_gallery-item',
+      isAnimated: true
+    });
+    setTimeout("$('.fs_grid_module').masonry()",500);
+  });
+  $(window).resize(function(){
+    $('.fs_grid_module').masonry();
+  });
+</script>
+
+<%= javascript_include_tag "http://code.jquery.com/ui/1.10.2/jquery-ui.min.js" %>
+<%= javascript_include_tag "theme.js" %>    
